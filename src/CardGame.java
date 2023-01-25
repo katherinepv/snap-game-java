@@ -52,12 +52,19 @@ public class CardGame {
         return deckOfCards;
     }
 
+    public ArrayList<Card> sortDeckIntoSuits() {
+        Collections.sort(deckOfCards, new Comparator<Card>() {
+            public int compare(Card o1, Card o2) {
+                return String.valueOf(o1.getSuit()).compareTo(o2.getSuit());
+            }
+        });
+        System.out.println(deckOfCards);
+        return deckOfCards;
+    }
+
     public ArrayList<Card> shuffleDeck() {
         Collections.shuffle(deckOfCards);
         System.out.println(deckOfCards);
         return deckOfCards;
     }
-//    public ArrayList<Card> shuffleDeck() {
-//        return Collections.shuffle(deckOfCards);
-//    }
 }

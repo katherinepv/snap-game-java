@@ -4,6 +4,7 @@ public class Main {
 //        cardGame.getDeck();
 //        cardGame.dealCard();
 //        cardGame.shuffleDeck();
-        cardGame.sortDeckInNumberOrder();
+//        cardGame.sortDeckInNumberOrder();
+        cardGame.sortDeckIntoSuits();
     }
 }
