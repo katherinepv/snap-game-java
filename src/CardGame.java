@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
+
+import static java.util.Collections.*;
 
 public class CardGame {
     // variables
@@ -43,6 +46,16 @@ public class CardGame {
 //    public ArrayList<Card> sortDeckInNumberOrder() {
 //
 //    }
+//    public ArrayList<Card> sortDeckIntoSuits() {
+//
+//    }
 
-
+    public ArrayList<Card> shuffleDeck() {
+        Collections.shuffle(deckOfCards);
+        System.out.println(deckOfCards);
+        return deckOfCards;
+    }
+//    public ArrayList<Card> shuffleDeck() {
+//        return Collections.shuffle(deckOfCards);
+//    }
 }
