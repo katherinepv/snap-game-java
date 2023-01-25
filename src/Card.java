@@ -14,8 +14,6 @@ public class Card {
         this.value = value;
     }
 
-    // getters and setters
-
     public String getSuit() {
         return suit;
     }

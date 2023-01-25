@@ -3,6 +3,7 @@ public class Main {
         CardGame cardGame = new CardGame("snap");
 //        cardGame.getDeck();
 //        cardGame.dealCard();
-        cardGame.shuffleDeck();
+//        cardGame.shuffleDeck();
+        cardGame.sortDeckInNumberOrder();
     }
 }

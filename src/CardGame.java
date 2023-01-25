@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-
-import static java.util.Collections.*;
+import java.util.Comparator;
 
 public class CardGame {
     // variables
@@ -43,12 +42,15 @@ public class CardGame {
         return deckOfCards.get(0);
     }
 
-//    public ArrayList<Card> sortDeckInNumberOrder() {
-//
-//    }
-//    public ArrayList<Card> sortDeckIntoSuits() {
-//
-//    }
+    public ArrayList<Card> sortDeckInNumberOrder() {
+        Collections.sort(deckOfCards, new Comparator<Card>() {
+            public int compare(Card o1, Card o2) {
+                return Integer.valueOf(o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+        System.out.println(deckOfCards);
+        return deckOfCards;
+    }
 
     public ArrayList<Card> shuffleDeck() {
         Collections.shuffle(deckOfCards);
