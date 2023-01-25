@@ -36,4 +36,13 @@ public class CardGame {
             System.out.println(card);
         }
     }
+    public Card dealCard() {
+        return deckOfCards.get(0);
+    }
+
+//    public ArrayList<Card> sortDeckInNumberOrder() {
+//
+//    }
+
+
 }
