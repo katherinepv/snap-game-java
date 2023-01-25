@@ -5,9 +5,7 @@ public class Card {
     private String suit;
     private String symbol;
     private int value;
-    private String[] suits = {"♦", "♣", "❤", "♠"};
-    private String[] symbols = new String[]{"2", "3","4","5","6","7","8","9","10","J","Q","K","A"};
-    private int[] values = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+
 
     // constructor
     public Card(String suit, String symbol, int value) {
@@ -42,10 +40,7 @@ public class Card {
         this.value = value;
     }
 
-
     // methods
-
-
     @Override
     public String toString() {
         return "Card{" +
