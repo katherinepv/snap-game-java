@@ -39,7 +39,9 @@ public class CardGame {
         }
     }
     public Card dealCard() {
-        return deckOfCards.get(0);
+        Card dealtCard = deckOfCards.get(0);
+        deckOfCards.remove(0);
+        return dealtCard;
     }
 
     public ArrayList<Card> sortDeckInNumberOrder() {
@@ -64,7 +66,7 @@ public class CardGame {
 
     public ArrayList<Card> shuffleDeck() {
         Collections.shuffle(deckOfCards);
-        System.out.println(deckOfCards);
+//        System.out.println(deckOfCards);
         return deckOfCards;
     }
 }
