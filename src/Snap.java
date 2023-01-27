@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Snap extends CardGame {
     Scanner scanner = new Scanner(System.in);
     public boolean hasMatchingSymbol = false;
+
+    Player player = new Player();
     public Snap(String name) {
         super(name);
     }
@@ -12,7 +14,7 @@ public class Snap extends CardGame {
         return playerInput;
     }
 
-    public void game() {
+    public void onePlayerGame() {
         System.out.println("Ready to play Snap?");
         super.shuffleDeck();
 
@@ -36,7 +38,20 @@ public class Snap extends CardGame {
             }
         }
         System.out.println("snap! you win! end of game");
+    }
 
+    public void twoPlayerGame() {
+        System.out.println("two player game here");
+    }
+
+    public void game() {
+        player.chooseNumOfPlayers();
+
+        if(player.isOnePlayerGame()) {
+            onePlayerGame();
+        } else {
+            twoPlayerGame();
+        }
 
     }
 }
