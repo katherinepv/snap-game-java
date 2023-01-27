@@ -6,17 +6,39 @@ public class Snap extends CardGame {
         super(name);
     }
 
+    public String playerTakesTurn() {
+        String playerInput = scanner.nextLine();
+        return playerInput;
+    }
+
+
     public void game() {
         System.out.println("Ready to play Snap?");
         super.shuffleDeck();
-        String playerInput = scanner.nextLine();
 
-        Card firstDealtCard = super.dealCard();
-        Card secondDealtCard = super.dealCard();
 
-        if(playerInput.equals("")){
-            System.out.println("Card one: " + firstDealtCard + " ¦ Card two: " + secondDealtCard );
+//        while(!firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
+            if(playerTakesTurn().equals("")){
+
+                playerTakesTurn();
+                Card firstDealtCard = super.dealCard();
+                System.out.println("Card one: " + firstDealtCard);
+                playerTakesTurn();
+                Card secondDealtCard = super.dealCard();
+                System.out.println("Card two: " + secondDealtCard);
+
+                if(firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
+                    System.out.println("Say snap!");
+                    scanner.nextLine();
+
+                    if(playerTakesTurn().equals("snap")) {
+                        System.out.println("you win");
+                    }
+                } else {
+                    firstDealtCard = secondDealtCard;
+                    secondDealtCard = super.dealCard();
+                }
+            }
         }
-
-    }
+//    }
 }
