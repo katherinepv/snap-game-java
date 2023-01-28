@@ -21,16 +21,18 @@ public class Snap extends CardGame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("Time up! Better luck next time.");
+                System.out.println("Time's up! Better luck next time.");
 
             }
         };
-        timer.schedule(task, 2000);
+        timer.schedule(task, 5000);
         String playerEntersSnap = scanner.nextLine();
         timer.cancel();
 
         if(playerEntersSnap.equalsIgnoreCase("snap")) {
             System.out.println("You win! End of game.");
+        } else {
+            System.out.println("Time's up! Better luck next time.");
         }
     }
 
@@ -50,14 +52,20 @@ public class Snap extends CardGame {
 
             if(firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
             hasMatchingSymbol = true;
+                System.out.println("SNAP!");
             break;
              }
             else {
                 firstDealtCard = secondDealtCard;
                 secondDealtCard = super.dealCard();
             }
+
+            if(super.getDeckOfCards().size() == 0) {
+                super.createDeck();
+                super.shuffleDeck();
+            }
         }
-        System.out.println("snap! you win! end of game");
+
     }
 
     public void twoPlayerGame() {
@@ -80,14 +88,12 @@ public class Snap extends CardGame {
                 hasMatchingSymbol = true;
                 checkPlayerWroteSnapInTwoSeconds();
                 break;
-
             }
             else {
                 firstDealtCard = secondDealtCard;
                 secondDealtCard = super.dealCard();
             }
         }
-        System.out.println("snap! you win! end of game");
     }
 
     public void game() {

@@ -25,6 +25,11 @@ public class CardGame {
         this.name = name;
     }
 
+
+    public ArrayList<Card> getDeckOfCards() {
+        return deckOfCards;
+    }
+
     // methods
     public void createDeck() {
         for (String suit : suits) {
