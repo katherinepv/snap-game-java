@@ -27,8 +27,8 @@ public class Player {
 
     public void chooseNumOfPlayers() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Press 1 to for a single player game");
-        System.out.println("Press 2 for a two player game");
+        System.out.println("Press 1 and enter for a single player game");
+        System.out.println("Press 2 and enter for a two player game");
         String playerChoice = scanner.nextLine();
 
         while(!userHasChosen){
