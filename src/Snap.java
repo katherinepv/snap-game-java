@@ -21,18 +21,18 @@ public class Snap extends CardGame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("Time's up! Better luck next time.");
+                System.out.println("Ahh you weren't quick enough! Better luck next time");
 
             }
         };
-        timer.schedule(task, 5000);
+        timer.schedule(task, 2000);
         String playerEntersSnap = scanner.nextLine();
         timer.cancel();
 
         if(playerEntersSnap.equalsIgnoreCase("snap")) {
             System.out.println("You win! End of game.");
         } else {
-            System.out.println("Time's up! Better luck next time.");
+            System.out.println("You did it wrong! Better luck next time");
         }
     }
 
@@ -43,11 +43,11 @@ public class Snap extends CardGame {
         Card firstDealtCard = super.dealCard();
         Card secondDealtCard = super.dealCard();
 
+        playerTakesTurn();
+        System.out.println("Card one: " + firstDealtCard);
         while (!hasMatchingSymbol) {
             playerTakesTurn();
-            System.out.println("Card one: " + firstDealtCard);
-            playerTakesTurn();
-            System.out.println("Card two: " + secondDealtCard);
+            System.out.println("Card one: " + firstDealtCard + " ¦ Card two: " + secondDealtCard );
             System.out.println(" ");
 
             if(firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
@@ -71,8 +71,8 @@ public class Snap extends CardGame {
     public void twoPlayerGame() {
         System.out.println("Ready to play Snap?");
         super.shuffleDeck();
-        System.out.println("When you see two cards with matching symbols, you have 2 seconds to say snap!");
-        System.out.println("Press enter to deal card.");
+        System.out.println("take it in turns to deal a card by pressing enter.");
+        System.out.println("When you see two cards with matching symbols, you have 2 seconds to say snap to win!");
 
         Card firstDealtCard = super.dealCard();
         Card secondDealtCard = super.dealCard();
@@ -92,6 +92,11 @@ public class Snap extends CardGame {
             else {
                 firstDealtCard = secondDealtCard;
                 secondDealtCard = super.dealCard();
+            }
+
+            if(super.getDeckOfCards().size() == 0) {
+                super.createDeck();
+                super.shuffleDeck();
             }
         }
     }
