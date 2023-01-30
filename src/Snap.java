@@ -21,7 +21,7 @@ public class Snap extends CardGame {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("Ahh you weren't quick enough! Better luck next time");
+                System.out.println(getANSI_RED() + "Ahh you weren't quick enough! Better luck next time" + getANSI_RESET());
 
             }
         };
@@ -30,9 +30,9 @@ public class Snap extends CardGame {
         timer.cancel();
 
         if(playerEntersSnap.equalsIgnoreCase("snap")) {
-            System.out.println("You win! End of game.");
+            System.out.println(getANSI_GREEN_BACKGROUND() + "You win! End of game." + getANSI_RESET());
         } else {
-            System.out.println("You did it wrong! Better luck next time");
+            System.out.println(getANSI_RED() + "You did it wrong! Better luck next time" + getANSI_RESET());
         }
     }
 
@@ -44,15 +44,16 @@ public class Snap extends CardGame {
         Card secondDealtCard = super.dealCard();
 
         playerTakesTurn();
-        System.out.println("Card one: " + firstDealtCard);
+        System.out.println(getANSI_PURPLE() + "Card one: " + firstDealtCard + getANSI_RESET());
         while (!hasMatchingSymbol) {
             playerTakesTurn();
-            System.out.println("Card one: " + firstDealtCard + " ¦ Card two: " + secondDealtCard );
+            System.out.println(getANSI_CYAN() + "Card one: " + firstDealtCard + getANSI_RESET());
+            System.out.println(getANSI_PURPLE() + "Card two: " + secondDealtCard + getANSI_RESET());
             System.out.println(" ");
 
             if(firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
             hasMatchingSymbol = true;
-                System.out.println("SNAP!");
+                System.out.println(getANSI_GREEN_BACKGROUND() + "SNAP!" + getANSI_RESET());
             break;
              }
             else {
@@ -71,7 +72,7 @@ public class Snap extends CardGame {
     public void twoPlayerGame() {
         System.out.println("Ready to play Snap?");
         super.shuffleDeck();
-        System.out.println("take it in turns to deal a card by pressing enter.");
+        System.out.println("Take it in turns to deal a card by pressing enter.");
         System.out.println("When you see two cards with matching symbols, you have 2 seconds to say snap to win!");
 
         Card firstDealtCard = super.dealCard();
@@ -81,7 +82,7 @@ public class Snap extends CardGame {
         System.out.println("Card one: " + firstDealtCard);
         while (!hasMatchingSymbol) {
             playerTakesTurn();
-            System.out.println("Card one: " + firstDealtCard + " ¦ Card two: " + secondDealtCard );
+            System.out.println("Card one: " + firstDealtCard + " ¦ Card two: " + secondDealtCard);
             System.out.println(" ");
 
             if(firstDealtCard.getSymbol().equals(secondDealtCard.getSymbol())) {
@@ -102,7 +103,7 @@ public class Snap extends CardGame {
     }
 
     public void game() {
-        System.out.println("Welcome to Snap!");
+        System.out.println(super.getANSI_GREEN_BACKGROUND() + "Welcome to Snap!" + super.getANSI_RESET());
         player.chooseNumOfPlayers();
 
         if(player.isOnePlayerGame()) {

@@ -9,6 +9,12 @@ public class CardGame {
     private final String[] suits = {"♦", "♣", "❤", "♠"};
     private final String[] symbols = new String[]{"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
     private final int[] values = {2,3,4,5,6,7,8,9,10,11,12,13,14};
+    private String ANSI_RESET = "\u001B[0m";
+    private String ANSI_CYAN = "\u001B[36m";
+    private String ANSI_PURPLE = "\u001B[35m";
+    private String ANSI_RED = "\u001B[31m";
+    private String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+
 
     // constructor(s)
     public CardGame(String name) {
@@ -28,6 +34,30 @@ public class CardGame {
 
     public ArrayList<Card> getDeckOfCards() {
         return deckOfCards;
+    }
+
+    public String[] getSuits() {
+        return suits;
+    }
+
+    public String getANSI_RESET() {
+        return ANSI_RESET;
+    }
+
+    public String getANSI_CYAN() {
+        return ANSI_CYAN;
+    }
+
+    public String getANSI_PURPLE() {
+        return ANSI_PURPLE;
+    }
+
+    public String getANSI_GREEN_BACKGROUND() {
+        return ANSI_GREEN_BACKGROUND;
+    }
+
+    public String getANSI_RED() {
+        return ANSI_RED;
     }
 
     // methods
